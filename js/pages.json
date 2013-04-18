@@ -1,0 +1,36 @@
+{
+  "home": {
+    "content": {
+      "id": "home",
+      "image": { "src": "home" },
+      "points": ["point-shed", "point-attic", "point-kitchen", "point-basement", "point-lounge", "point-garage", "point-garden"]
+    },
+    "navigation": { "navlinks": "nav" }
+  },
+  "attic": {
+    "content": {
+      "id": "attic",
+      "image": { "src": "attic" },
+      "points": [ "point-box", "point-roof", "point-storage"  ]
+    },
+    "navigation": { "navlinks": "nav", "extralinks": "nav-extra" }
+  },
+  "point-box": {
+    "id": "point-box",
+    "image": { "src": "point-box" },
+    "extra": {
+      "products": { "items": "products-all" },
+      "rodents": { "items": "rodents-13" }
+    }
+  },
+  "products": { "class": "products" },
+  "products-all": [ "ratmousekiller", "mousekiller", "killerbait", "advmousetrap", "mousetraps", "rattrap", "softblock" ],
+  "products-13": [ "ratmousekiller", "killerbait" ],
+  "ratmousekiller": [
+    "id": "ratmousekiller",
+    "class": "product",
+    "image": { "src": "ratmousekiller" }
+  ],
+  "navigation": { "title": "Quick navigation" }
+}
+

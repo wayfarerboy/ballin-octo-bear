@@ -1,0 +1,50 @@
+{
+    "home": {
+        "title": "Do you thnk you have a rodent problem?",
+        "description": "Rodents cause detrimental damage in your home and garden... destroying furniture, chewing electric wires, while contaminating your home and potentially spreading disease.  If you think you may have a rodent problem, look no further, help is here.",
+        "image": {
+            "alt": "Home"
+        }
+    },
+    "attic": {
+        "title": "What to look out for in the attic",
+        "description": "Rodents, particularly Black Rats, are very agile climbers. They can reach the comfort of the attic with ease, running up and down stucco walls, climbing cable lines or guttering. Black Rats can enter the attic through the smallest hole, making it larger as they gnaw. Squeaking, scratching or rustling noises coming from your attic are often the first sign that you have an infestation. If not controlled, rodents can cause serious damage in the attic, including house fires if they chew through electric cabling and will return year after year to make your attic their home.</p><p>Click on a hotspot (<span class=hotspot>+</span>) to identify attic rodents and the different types of damange they can cause in the attic.",
+        "image": {
+            "alt": "The attic"
+        }
+    },
+    "point-box": {
+        "title": "Box Bases",
+        "overview": "Paper and cardboard is soft and easy to chew. It is also perfect to build nests...",
+        "image": {
+            "alt": "Box bases"
+        },
+        "details": {
+            "title": "Things to look out for",
+            "description": "<ul><li><strong>Paper or cardboard storage:</strong> Mice tend to gnaw on materials softer than their own teeth and will effortlessly chew on paper and cardboard. They are also very adept at getting inside boxes.</li> <li><strong>Fresh evidence:</strong> Look out for gnawed boxes or storage containers with teeth marks and scratches. It is easy to distinguish between rat and mice teeth marks. Rodents will chew on most items except for glass and metal.</li></ul>"
+        }
+    },
+    "ratmousekiller": {
+        "details": {
+            "title": "Advanced Formula Rat and Mouse Killer",
+            "subtitle": "Rat and Mouse killer for advanced users",
+            "description": {
+                "header-description": "For rats place up to 100g at each bait point, mice up to 20g",
+                "features": {
+                    "featuretarg": { "description": "Rats and mice" },
+                    "featureloc": { "description": "For use indoors and outdoors" },
+                    "featuretype": { "description": "Cereal based bait" },
+                    "featuresku": { "description": "<ul><li>400g - 79557183</li><li>1kg - 79215274</li></ul>" }
+                }
+            }
+        }
+    },
+    "featuretarg": "Targeted pest",
+    "featureloc": "Location",
+    "featuretype": "Type of application",
+    "featuresku": "SKU",
+    "products": {
+      "intro": "Use the following products for this area:"
+    }
+
+}

@@ -1,0 +1,237 @@
+@import 'compass';
+@import 'normalise';
+@import 'main';
+
+@font-face {
+  font-family: 'iconicregular';
+  src: url('../fonts/iconic-webfont.eot');
+  src: url('../fonts/iconic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/iconic-webfont.woff') format('woff'),
+    url('../fonts/iconic-webfont.ttf') format('truetype'),
+    url('../fonts/iconic-webfont.svg#iconicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin icon-font($fontsize) {
+  span[data-icon]:before {
+    font: {
+      family: 'iconicregular';
+      size: $fontsize;
+      weight: 400;
+    }
+    text-transform: lowercase;
+    content: attr(data-icon);
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    line-height: 0;
+  }
+}
+
+@mixin fadeOut {
+  z-index: -2;
+  @include opacity(0.0);
+  @include transition(opacity 0.5s, z-index 0.5s ease-in);
+}
+
+@mixin fadeIn {
+  z-index: 2;
+  @include opacity(1.0);
+  @include transition(opacity 0.5s, z-index 0s);
+}
+
+@mixin pointOffset($left, $top) {
+  left: $left;
+  top: $top;
+  section.details,
+  div.extra {
+    left: -$left;
+    top: -$top;
+  }
+}
+
+html.js.fontface div.page {
+  position: relative;
+  overflow: hidden;
+
+  h1, h2, h3, h4, p {
+    margin: 0; 
+  }
+
+  p { line-height: 1.2; }
+
+  a {
+    text-decoration: none;
+    @include link-colors(black, black, black, black, black);
+  }
+
+  figure.bg {
+    width: 60em;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    img { width: 100%; }
+  }
+
+  nav {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    overflow: hidden;
+    padding: 0 1.4em;
+    font-size: 0.9em;
+    h2, .home {
+      @include border-radius(0.5em);
+      border: solid black 0.2em;
+      background: yellow;
+      margin: 0 -1em;
+      padding: 0 0.5em;
+      font-size: 1.1em;
+      @include transition(background 0.5s);
+      &:hover { 
+        cursor: pointer;
+        background: white;
+      }
+    }
+    h2 { 
+      z-index: 2;
+      position: relative;
+      font-size: 1.2em;
+    }
+    ul {
+      top: -20em;
+      margin: 0;
+      padding-left: 0;
+      position: relative;
+      background: white;
+      z-index: 1;
+      @include transition(top 0.2s);
+    }
+    &.active ul {
+      top: 0em;
+    }
+  }
+
+  section.overview {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    font-size: 0.9em;
+    background: white;
+    background: transparentize(white, 0.2);
+    padding: 0.2em 0.5em;
+    @include border-radius(0.5em);
+    @include fadeOut;
+    h1 {
+      margin: 0; 
+      font-size: 1.4em;
+    }
+  }
+
+  div.points > article {
+    position: absolute;
+    > figure, 
+    > section.teaser,
+    > section.details,
+    > div.extra {
+      @include fadeOut;
+    }
+    > figure {
+      width: 5em;
+      @include border-radius(5em);
+      height: 5em;
+      overflow: hidden;
+      position: absolute;
+      top: -3em;
+      left: -8.5em;
+    }
+    > section.teaser {
+      font-size: 0.8em;
+      width: 11.5em;
+      margin: -4.5em -7.5em;
+      height: 9em;
+      position: relative;
+      @include border-radius(0.5em);
+      background: white;
+      background: transparentize(white, 0.3);
+      padding: 0.5em 0.5em 0.5em 4em;
+    }
+    > section.details {
+      position: absolute;
+      width: 40em;
+      margin: 10em;
+      height: 20em;
+      background: white;
+      background: transparentize(white, 0.3);
+      padding: 1em;
+      @include border-radius(0.5em);
+      figure {
+        float: right;
+        margin: 0 0 0.5em 1em;
+      }
+    }
+    a.open {
+      position: absolute;
+      top: -1em;
+      left: -1em;
+      @include fadeIn;
+    }
+  }
+
+  a.button {
+    @include icon-font(1.1em);
+    @include border-radius(1em);
+    background: black;
+    color: yellow;
+    cursor: pointer;
+    height: 2em;
+    padding: 0;
+    width: 2em;
+    text-align: center;
+    display: block;
+    @include transition(color 0.5s, background 0.5s);
+    span { 
+      cursor: pointer;
+      line-height: 2.2;
+    }
+    &:hover {
+      background: yellow;
+      color: black;
+    }
+  }
+
+  a.close, a.info, a.open { position: absolute; }
+  a.close { top: -0.7em; right: -0.7em; }
+  a.info { top: 1.2em; left: 2em; }
+  a.more {
+    @include float-right;
+    display: block;
+  }
+
+  .point-box { @include pointOffset(48em,30em); }
+  .point-roof { @include pointOffset(31em, 10em); }
+  .point-storage { @include pointOffset(12em, 35em); }
+
+  aside { @include fadeOut; }
+
+  &.overview-active {
+    > div.points,
+    > aside, > nav, > a.info { @include fadeOut; }
+    section.overview { @include fadeIn; }
+  }
+
+  &.point-active div.points {
+    article a.open { @include fadeOut; }
+    article.active { 
+      > figure, > section.teaser { @include fadeIn; }
+      > figure { z-index: 3; }
+    }
+    article.teaser-active {
+      > figure, > section.teaser { @include fadeOut; }
+      > section.details { @include fadeIn; }
+    }
+  }
+}
